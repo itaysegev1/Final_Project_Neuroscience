@@ -1,0 +1,45 @@
+
+import numpy as np
+RED = "\033[91m"
+GREEN = "\033[92m"
+BLUE = "\033[94m"
+RESET = "\033[0m"
+
+from HebbianNetwork import HebbianNetwork
+from VectorsFactory import VectorsFactory
+
+if __name__ == '__main__':
+    # crating the network
+    net = HebbianNetwork(64, 3, learning_rate=1)
+
+    # creating the inputs
+    inputs = VectorsFactory.create_letters_vector()
+    outputs = VectorsFactory.create_weight_mat()
+
+    # training the network
+    print(f"{GREEN}start training...{RESET}")
+    errors = net.train(
+        inputs,
+        outputs,
+        epochs=500
+    )
+
+    # evaluate the network
+    accuracy = net.calculate_accuracy(inputs, outputs)
+    print(f"{BLUE}Accurate on train {accuracy:.2%}{RESET}")
+
+    # Checking the results for all the letters and print
+    print(f"{GREEN}\nResults for all the letters: {RESET}")
+    for i, input_vector in enumerate(inputs):
+        prediction = net.predict(input_vector)
+        if np.array_equal(prediction, [1, 0, 0]):
+            ans = "A-I"
+        elif np.array_equal(prediction, [0, 1, 0]):
+            ans = "J-R"
+        else:
+            ans = "S-Z"
+
+        expected = "A-I" if i <= 8 else "J-R" if i <= 17 else "S-Z"
+        color = BLUE if ans == expected else RED
+
+        print(f"{color}The letter {chr(65 + i)} Suppose to be in: {expected},and the answer is: {ans}{RESET}")
