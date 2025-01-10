@@ -111,7 +111,6 @@ class HebbianNetwork:
         """
         succeeded = 0
         input_len = len(inputs_test)
-
         for inputs, target in zip(inputs_test, targets_test):
             prediction = self.predict(inputs)
             if np.array_equal(prediction, target):

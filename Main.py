@@ -16,7 +16,7 @@ def standard_deviation(var):
     """
     return np.sqrt(var)
 
-def variance(net,outputs,avg,number_of_rounds):
+def variance(net,outputs,avg,percent_of_mistake,number_of_rounds):
     """
     This function returns the variance of the results
     :param net: the Hebbian Network object
@@ -27,7 +27,7 @@ def variance(net,outputs,avg,number_of_rounds):
     var=0
     for i in range(number_of_rounds):
         inputs = VectorsFactory.create_letters_vector()
-        vecs = VectorsFactory.create_vectors_with_mistakes(inputs, percent=i / 100)
+        vecs = VectorsFactory.create_vectors_with_mistakes(inputs, percent=percent_of_mistake)
         accuracy=net.calculate_accuracy(vecs,outputs)
         var += ((accuracy-avg)**2) / number_of_rounds
     return var
@@ -44,9 +44,9 @@ def cal_currency_var_std(net,outputs,number_of_rounds=500):
         total_accuracy = 0
         for j in range(number_of_rounds):
             inputs = VectorsFactory.create_letters_vector()
-            vecs = VectorsFactory.create_vectors_with_mistakes(inputs, percent=i / 100)
+            vecs = VectorsFactory.create_vectors_with_mistakes(inputs, percent=(i / 100))
             total_accuracy += net.calculate_accuracy(vecs, outputs) / number_of_rounds
-        var = variance(net, outputs, total_accuracy, number_of_rounds)
+        var = variance(net, outputs, total_accuracy,i/100 ,number_of_rounds)
         std = standard_deviation(var)
         print(f"{PURPLE}the average accuracy on {number_of_rounds} loops with {i}% of mistake is: {total_accuracy:.2%}{RESET}")
         print(f"{PURPLE}The variance of the {i}% mistake is: {var:.2}{RESET}")
