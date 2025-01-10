@@ -11,7 +11,7 @@ from VectorsFactory import VectorsFactory
 
 if __name__ == '__main__':
     # crating the network
-    net = HebbianNetwork(64, 3, learning_rate=1)
+    net = HebbianNetwork(64, 3,learning_rate=0.5)
 
     # creating the inputs
     inputs = VectorsFactory.create_letters_vector()
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     errors = net.train(
         inputs,
         outputs,
-        epochs=5000
+        epochs=50000
     )
 
     # evaluate the network
