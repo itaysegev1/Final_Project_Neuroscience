@@ -8,7 +8,17 @@ RESET = "\033[0m"
 
 
 class HebbianNetwork:
+    """
+    This class implements the Hebbian Network
+    """
     def __init__(self, input_size, output_size, learning_rate=0.001):
+        """
+        in this constructor we made the weight mat, and getting the size of the net, number of inputs and outputs
+        and the learning rate of the net
+        :param input_size: the size of one input layer, the number of neurons in the input layer
+        :param output_size: the size of one output layer, the number of neurons in the output layer
+        :param learning_rate: the learning rate
+        """
         self.input_size = input_size
         self.output_size = output_size
         self.learning_rate = learning_rate
@@ -17,10 +27,22 @@ class HebbianNetwork:
 
     @staticmethod
     def sigmoid(x):
-        # sigmoid is for normalization for the output calculation to a number between 0-1
+        """
+        the sigmoid function is for normalization of the output to a number between 0 and 1
+        :param x: the output we want to normalize
+        :return: the normalized output
+        """
         return 1 / (1 + np.exp(-x))
 
-    def train(self, inputs_train, targets_train, epochs=100, regularization=0.0001):
+    def train(self, inputs_train, targets_train, epochs=100, regularization=0.00001):
+        """
+        In this function we will train our network
+        :param inputs_train: all the inputs we want to train
+        :param targets_train: the target that fit to each input
+        :param epochs: the max number of epochs we want to do
+        :param regularization: the regularization parameter
+        :return: the best error that we can achieve in the last epoch we made
+        """
         inputs_train = np.array([np.array(x, dtype=float) for x in inputs_train])
         targets_train = np.array([np.array(x, dtype=float) for x in targets_train])
         best_weights = None
@@ -56,10 +78,12 @@ class HebbianNetwork:
             if (epoch + 1) % 10 == 0:
                 print(f"{GREEN}For epoch number: {epoch + 1} the best error mistake is {avg_error:.4f} {RESET}")
 
+            #if the avarage error is under this level it pretty accurate and we can break the loop
             if avg_error < 0.00001:
                 print(f"{GREEN}We succeeded for converge on epoch {epoch + 1}{RESET} ")
                 break
 
+        #saving the calculated weights
         self.weights = best_weights
         print(f"{GREEN} finished training updating weights...{RESET}")
         return best_error

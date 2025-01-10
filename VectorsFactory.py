@@ -2,9 +2,18 @@ import random
 
 
 class VectorsFactory:
+    """
+    This class creates a vectors object
+    it deals with creating all the options of vectors and mistakes we need for the Hebbian Network
+    this is a static class
+    """
 
     @staticmethod
     def create_letters_vector():
+        """
+        This method create a vector of vectors of letters.
+        :return: the vector of the vectors of letters.
+        """
         letters_vector = []
 
         # A
@@ -145,6 +154,10 @@ class VectorsFactory:
 
     @staticmethod
     def create_bold_letters_vector():
+        """
+        This method create a vector of vectors of the letters in bold
+        :return:  the vector of the vectors of letters in bold.
+        """
         letters_vector = []
         # A
         letters_vector.append([0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0,
@@ -280,6 +293,10 @@ class VectorsFactory:
 
     @staticmethod
     def create_letters_v3_vector():
+        """
+        This method create the letters vector of letters that they are bold and circle
+        :return: the letters vector
+        """
         letters_vector = []
 
         # A
@@ -415,6 +432,10 @@ class VectorsFactory:
 
     @staticmethod
     def create_letters_v4_vector():
+        """
+        This method creates a vector of letters that they are extra bold and circle
+        :return: the vector of letters
+        """
         letters_vector = []
 
         # A
@@ -549,7 +570,11 @@ class VectorsFactory:
         return letters_vector
 
     @staticmethod
-    def create_weight_mat():
+    def create_groups_mat():
+        """
+        This method creates a vector of all the output groups in order
+        :return: the vector of the output groups
+        """
         # For A-I
         v1 = [1, 0, 0]
         # For J-R
@@ -567,6 +592,12 @@ class VectorsFactory:
 
     @staticmethod
     def create_vectors_with_mistakes(vectors_org, percent=0.05):
+        """
+        This method takes an original vector and create new vectors with the given percent of mistakes
+        :param vectors_org: the original vector of letters
+        :param percent: the percentage of mistakes
+        :return: the new vectors with mistakes
+        """
         vectors = vectors_org.copy()
         if percent < 0 or percent > 1:
             print("Percent must be between 0 and 1")
