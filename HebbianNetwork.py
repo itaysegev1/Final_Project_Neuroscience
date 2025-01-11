@@ -76,16 +76,16 @@ class HebbianNetwork:
 
             # Print each 10 epochs the error the best error mistake
             if (epoch + 1) % 10 == 0:
-                print(f"{GREEN}For epoch number: {epoch + 1} the best error mistake is {avg_error:.4f} {RESET}")
+                print(f"{GREEN}\tFor epoch number: {epoch + 1} the best error mistake is {avg_error:.7f} {RESET}")
 
             #if the avarage error is under this level it pretty accurate and we can break the loop
-            if avg_error < 0.00001:
+            if avg_error < 0.000001:
                 print(f"{GREEN}We succeeded for converge on epoch {epoch + 1}{RESET} ")
                 break
 
         #saving the calculated weights
         self.weights = best_weights
-        print(f"{GREEN} finished training updating weights...{RESET}")
+        print(f"{GREEN}finished training updating weights...{RESET}")
         return best_error
 
     def predict(self, inputs):

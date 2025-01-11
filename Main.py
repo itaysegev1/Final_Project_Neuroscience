@@ -49,8 +49,8 @@ def cal_currency_var_std(net,outputs,number_of_rounds=500):
         var = variance(net, outputs, total_accuracy,i/100 ,number_of_rounds)
         std = standard_deviation(var)
         print(f"{PURPLE}the average accuracy on {number_of_rounds} loops with {i}% of mistake is: {total_accuracy:.2%}{RESET}")
-        print(f"{PURPLE}The variance of the {i}% mistake is: {var:.2}{RESET}")
-        print(f"{PURPLE}The standard deviation of the {i}% mistake is: {std:.2}{RESET}\n")
+        print(f"{PURPLE}The variance of the {i}% mistake is: {var:.2%}{RESET}")
+        print(f"{PURPLE}The standard deviation of the {i}% mistake is: {std:.2%}{RESET}\n")
 
 def result_for_group(description_of_group,net,inputs,outputs):
     """
