@@ -591,6 +591,20 @@ class VectorsFactory:
         return ans
 
     @staticmethod
+    def create_output_mat():
+        final_mat=[]
+        for i in range(0, 26):
+            vec=[]
+            for j in range(0, 26):
+                if i==j:
+                    vec.append(1)
+                else:
+                    vec.append(0)
+            final_mat.append(vec)
+        return final_mat
+
+
+    @staticmethod
     def create_vectors_with_mistakes(vectors_org, percent=0.05):
         """
         This method takes an original vector and create new vectors with the given percent of mistakes
