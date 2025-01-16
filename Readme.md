@@ -5,15 +5,17 @@
 # 🧠 Letter Classification Neural Network
 
 <h2>
-A Sophisticated Implementation of Hebbian Learning
+A Sophisticated Implementation of Hebbian Learning with Advanced Visualization
 </h2>
 
 <p align="center">
-    <b>🎯 Advanced Pattern Recognition | 🔍 Robust Classification | 📊 Comprehensive Analysis</b>
+    <b>🎯 Advanced Pattern Recognition | 🔍 Robust Classification | 📊 Comprehensive Analysis & Visualization</b>
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/badge/Python-3.x-blue.svg" alt="Python 3.x">
+    <img src="https://img.shields.io/badge/NumPy-Latest-green.svg" alt="NumPy">
+    <img src="https://img.shields.io/badge/Matplotlib-Latest-orange.svg" alt="Matplotlib">
 </p>
 
 ---
@@ -22,7 +24,7 @@ A Sophisticated Implementation of Hebbian Learning
 
 ## 🌟 Overview
 
-This project showcases an advanced implementation of a Hebbian Learning Network designed to classify English alphabet letters. The network demonstrates impressive pattern recognition capabilities, able to handle both clean and noisy inputs while maintaining robust performance.
+This project showcases an advanced implementation of a Hebbian Learning Network designed to classify English alphabet letters. The network demonstrates impressive pattern recognition capabilities, able to handle both clean and noisy inputs while maintaining robust performance. The project includes comprehensive visualization tools for analyzing network performance and behavior.
 
 ## 🎯 Key Features
 
@@ -36,10 +38,18 @@ This project showcases an advanced implementation of a Hebbian Learning Network 
 - ⭕ Bold with circular styling
 - 🔵 Extra bold with circular styling
 
-### Advanced Testing
-- 🔍 Noise tolerance testing (5%, 10%, 15%, 20%)
-- 📊 Comprehensive accuracy analysis
+### Advanced Analysis & Visualization
+- 📊 Real-time training progress monitoring
+- 📈 Performance metrics visualization
+- 🎨 Network architecture visualization
+- 📉 Noise impact analysis
+- 🔍 Statistical measure tracking
+
+### Comprehensive Testing
+- 🧪 Noise tolerance testing (5%, 10%, 15%, 20%)
+- 📊 Accuracy analysis across different letter styles
 - 🎨 Color-coded visual feedback
+- 📈 Variance and standard deviation analysis
 
 ## 🏗️ Project Structure
 
@@ -47,10 +57,11 @@ This project showcases an advanced implementation of a Hebbian Learning Network 
 
 ```
 └── 📂 Project Root
-    ├── 📜 HebbianNetwork.py  # Core neural network implementation
-    ├── 📜 VectorsFactory.py  # Data generation and preprocessing
-    ├── 📜 Main.py           # Execution and interface
-    └── 📜 README.md         # Documentation
+    ├── 📜 HebbianNetwork.py     # Core neural network implementation
+    ├── 📜 VectorsFactory.py     # Data generation and preprocessing
+    ├── 📜 Main.py              # Execution and interface
+    ├── 📜 Visualization.py     # Visualization and analysis tools
+    └── 📜 README.md            # Documentation
 ```
 
 ### 🔧 Technical Architecture
@@ -72,6 +83,38 @@ This project showcases an advanced implementation of a Hebbian Learning Network 
 - 📊 Results visualization
 - 📈 Statistical analysis
 - 🔍 Testing procedures
+
+#### Visualization.py
+- 📊 Training progress plots
+- 🎨 Network architecture visualization
+- 📈 Performance analysis graphs
+- 📉 Noise impact visualization
+
+## 📊 Visualization Components
+
+### 1. Network Architecture Visualization
+- Visual representation of network topology
+- Input layer (64 neurons) and output layer (3 neurons) visualization
+- Connection weight visualization
+- Interactive node exploration
+
+### 2. Training Progress Visualization
+- Real-time error rate tracking
+- Accuracy progression graphs
+- Learning curve analysis
+- Convergence monitoring
+
+### 3. Performance Analysis
+- Accuracy comparison across letter groups
+- Noise impact visualization
+- Statistical measures plotting
+- Cross-validation results
+
+### 4. Statistical Analysis
+- Standard deviation tracking
+- Variance analysis
+- Error distribution visualization
+- Performance metrics comparison
 
 ## 💻 Technical Specifications
 
@@ -97,6 +140,7 @@ Letters are encoded as 8x8 binary matrices where:
 ### Prerequisites
 - Python 3.x
 - NumPy library
+- Matplotlib library
 
 ### Installation Steps
 
@@ -107,7 +151,7 @@ git clone [repository-url]
 
 2. Install dependencies:
 ```bash
-pip install numpy
+pip install numpy matplotlib
 ```
 
 ### 🎮 Usage
@@ -125,17 +169,28 @@ Enter a number for active the Hebbian Network:
 3. Exit
 ```
 
+3. Generate visualizations:
+```bash
+python Visualization.py
+```
+
 ## 📊 Performance Analysis
 
-The system provides rich analytics including:
-- ✅ Accuracy percentages
-- 📈 Performance variance
-- 📊 Standard deviation
-- 🎨 Color-coded results:
-  - 🔵 Blue: Correct predictions
-  - 🔴 Red: Incorrect predictions
-  - 💚 Green: Status messages
-  - 💜 Purple: Statistical results
+### Accuracy Metrics
+- Training Set: 100%
+- Bold Letters: 57%
+- Bold & Circle: 61%
+- Extra Bold: 51%
+
+### Noise Impact
+- 5% Noise: 94.08% accuracy
+- 10% Noise: 83.86% accuracy
+- 15% Noise: 74.64% accuracy
+- 20% Noise: 67.61% accuracy
+
+### Statistical Measures
+- Variance ranges from 0.22 to 0.79
+- Standard deviation ranges from 4.69 to 8.88
 
 ## 🔍 Implementation Details
 
@@ -146,11 +201,11 @@ The system provides rich analytics including:
 4. ⚖️ Weight updates with regularization
 5. 📈 Convergence monitoring
 
-### Prediction Workflow
-1. 📥 Input vector processing
-2. ⚙️ Weight application
-3. 📊 Sigmoid activation
-4. 📤 Classification output
+### Visualization Process
+1. 📊 Real-time data collection
+2. 📈 Dynamic plot generation
+3. 🎨 Interactive visualization updates
+4. 📉 Performance metric tracking
 
 ## 🛠️ Error Handling
 
