@@ -46,11 +46,7 @@ def cal_currency_var_std(net,outputs,number_of_rounds=500):
             inputs = VectorsFactory.create_letters_vector()
             vecs = VectorsFactory.create_vectors_with_mistakes(inputs, percent=(i / 100))
             total_accuracy += net.calculate_accuracy(vecs, outputs) / number_of_rounds
-        var = variance(net, outputs, total_accuracy,i/100 ,number_of_rounds)
-        std = standard_deviation(var)
-        print(f"{PURPLE}the average accuracy on {number_of_rounds} loops with {i}% of mistake is: {total_accuracy:.2%}{RESET}")
-        print(f"{PURPLE}The variance of the {i}% mistake is: {var:.2%}{RESET}")
-        print(f"{PURPLE}The standard deviation of the {i}% mistake is: {std:.2%}{RESET}\n")
+
 
 #printing the results for the 3 group options
 def result_for_group(description_of_group,net,inputs,outputs):
@@ -105,7 +101,7 @@ def project_option_1_groups():
     errors = net.train(inputs, outputs, epochs=5000)
     print(f"{GREEN}training finished!{RESET}")
 
-    # crating all the vectors we want to check their accuracy on this net
+    # creating all the vectors we want to check their accuracy on this net
     train_inputs = VectorsFactory.create_letters_vector()
     vecs5per = VectorsFactory.create_vectors_with_mistakes(VectorsFactory.create_letters_vector(), percent=0.05)
     vecs10per = VectorsFactory.create_vectors_with_mistakes(VectorsFactory.create_letters_vector(), percent=0.1)

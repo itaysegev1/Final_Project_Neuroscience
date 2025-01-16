@@ -23,7 +23,6 @@ class HebbianNetwork:
         self.output_size = output_size
         self.learning_rate = learning_rate
         self.weights = np.zeros((output_size, input_size)) #set the weight mat to 0
-        #self.weights=np.random.rand(output_size, input_size) #if we want other result each time
 
     @staticmethod
     def sigmoid(x):
